@@ -1,0 +1,58 @@
+category,entity,frequency
+Disease,syndrome,4519
+Procedure,surgery,2430
+Symptom,pain,1746
+Disease,cancer,1567
+Medication,drug,1560
+Disease,infection,1147
+Symptom,weakness,1023
+Disease,diabetes,891
+Disease,tumor,776
+Disease,anemia,598
+Symptom,fever,593
+Symptom,swelling,577
+Symptom,vomiting,532
+Symptom,fatigue,441
+Medication,medicine,400
+Symptom,nausea,400
+Procedure,chemotherapy,359
+Procedure,biopsy,350
+Disease,arthritis,349
+Medication,medication,346
+Disease,hypertension,313
+Procedure,radiation therapy,302
+Lab Test,mri,273
+Procedure,transplant,261
+Procedure,scan,250
+Procedure,x-ray,244
+Medication,dose,229
+Medication,insulin,224
+Symptom,headache,218
+Symptom,chest pain,211
+Lab Test,blood test,201
+Disease,pneumonia,201
+Symptom,dizziness,200
+Symptom,rash,197
+Procedure,examination,184
+Lab Test,ct scan,179
+Disease,hepatitis,158
+Symptom,cough,153
+Procedure,screening,152
+Disease,flu,132
+Medication,aspirin,129
+Medication,injection,122
+Symptom,joint pain,119
+Disease,asthma,115
+Medication,vaccine,98
+Medication,antibiotic,86
+Procedure,operation,67
+Lab Test,genetic test,56
+Symptom,sore throat,54
+Medication,ibuprofen,50
+Disease,tuberculosis,41
+Disease,malaria,17
+Lab Test,urine test,16
+Lab Test,screening test,14
+Medication,tablet,9
+Lab Test,glucose test,6
+Lab Test,cholesterol test,2
