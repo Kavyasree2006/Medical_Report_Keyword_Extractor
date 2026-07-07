@@ -1,62 +1,191 @@
-# Medical Report Keyword Extractor
+# 🏥 Medical Report Keyword Extractor and Clinical NLP Dashboard
 
-An end-to-end Natural Language Processing project for preparing medical text, extracting healthcare keywords and clinical entities, building structured medical datasets, and exploring the results through an interactive dashboard.
+> An end-to-end medical NLP project that cleans clinical text, extracts healthcare keywords, identifies diseases, symptoms, medications, procedures, and lab tests, builds a searchable medical concept database, and provides an interactive HTML dashboard with CSV-based entity extraction.
 
-The system converts free-text medical question-answer data and sample medical reports into structured healthcare information covering:
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![NLP](https://img.shields.io/badge/NLP-Medical_Text_Processing-green.svg)
+![Dashboard](https://img.shields.io/badge/Dashboard-HTML_CSS_JS-orange.svg)
+![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-purple.svg)
+![Status](https://img.shields.io/badge/Status-Completed-success.svg)
+
+---
+
+# 📌 Project Overview
+
+The **Medical Report Keyword Extractor and Clinical NLP Dashboard** is an NLP-based healthcare text processing system designed to convert unstructured medical text into structured, searchable healthcare information.
+
+The project works on medical question-answer data and sample medical reports. It performs text cleaning, preprocessing, keyword extraction, clinical entity extraction, medical concept tagging, and dashboard-based exploration.
+
+The system identifies important clinical concepts such as:
 
 - Diseases
 - Symptoms
 - Medications
 - Procedures
 - Laboratory tests
-- Searchable medical concepts
+- Medical keywords
+- Searchable healthcare concepts
 
-> Important: This project is for educational and research purposes only. It is not a medical device and must not be used for diagnosis, treatment decisions, or patient-care decisions without clinical validation.
-
----
-
-## Project Overview
-
-This project was developed in two main phases.
-
-### Day 1: Medical Text Preparation, Analysis, and NLP
-
-Day 1 focused on preparing the medical text dataset for NLP analysis.
-
-Main tasks completed:
-
-- Imported the medical text dataset using Python and Pandas.
-- Inspected dataset columns, missing values, duplicate rows, and inconsistencies.
-- Combined medical questions and answers into a single text field.
-- Cleaned medical text by converting to lowercase and removing unwanted characters.
-- Performed tokenization and text normalization.
-- Removed stop words while preserving clinical terminology.
-- Generated word-frequency and keyword-frequency outputs.
-- Created training and testing datasets.
-
-### Day 2: Entity Extraction, Keyword Identification, and Searchable Medical Knowledge System
-
-Day 2 focused on extracting structured medical information from free-text data.
-
-Main tasks completed:
-
-- Implemented keyword extraction using TF-IDF, RAKE, and KeyBERT.
-- Configured clinical entity extraction for healthcare categories.
-- Identified diseases, symptoms, medications, procedures, and laboratory tests.
-- Created structured clinical entity datasets.
-- Generated entity-frequency and keyword-frequency outputs.
-- Built a searchable medical concept database.
-- Developed an interactive HTML, CSS, and JavaScript dashboard.
-- Added CSV upload and browser-based entity extraction.
+Unlike simple text analysis projects, this project provides a complete pipeline from raw medical text to a usable interactive dashboard.
 
 ---
 
-## Actual Output Summary
+# 🚀 Features
 
-The following counts come from the generated project outputs.
+## 🧹 Medical Text Cleaning and Preprocessing
+
+The dataset is cleaned and prepared for NLP analysis.
+
+Preprocessing steps include:
+
+- Missing value checking
+- Duplicate record checking
+- Inconsistency handling
+- Lowercase conversion
+- Unwanted character removal
+- Whitespace and newline cleanup
+- Tokenization
+- Stop-word removal
+- Clinical term preservation
+- Text normalization
+
+Generated columns include:
+
+- `medical_text`
+- `clean_text`
+- `tokens`
+- `tokens_no_stopwords`
+- `normalized_tokens`
+- `preprocessed_text`
+
+---
+
+## 🔍 Keyword Extraction
+
+The project implements multiple keyword extraction techniques.
+
+Methods used:
+
+- **TF-IDF**
+- **RAKE**
+- **KeyBERT**
+
+TF-IDF and RAKE were applied to the full dataset. KeyBERT was tested on a sample of records because transformer-based keyword extraction requires more processing time.
+
+The final keyword dataset includes:
+
+- TF-IDF keywords
+- RAKE keywords
+- KeyBERT sample keywords
+- Disease tags
+- Symptom tags
+- Medication tags
+- Procedure tags
+- Lab test tags
+
+---
+
+## 🧬 Clinical Entity Extraction
+
+The system extracts clinically relevant entities from medical text and maps them to predefined healthcare categories.
+
+Entity categories:
+
+- Disease
+- Symptom
+- Medication
+- Procedure
+- Lab Test
+
+The extracted results are stored in a structured dataset containing:
+
+- Record ID
+- Question type
+- Source question
+- Extracted entity
+- Entity category
+
+---
+
+## 🏷️ Medical Concept Tagging
+
+Medical concept tagging converts free-text reports into organized healthcare tags.
+
+Example:
+
+```text
+The patient has fever, chest pain, and cough. A blood test was recommended.
+```
+
+Structured output:
+
+| Category | Extracted Concepts |
+|----------|--------------------|
+| Disease | Not found |
+| Symptom | fever, chest pain, cough |
+| Medication | Not found |
+| Procedure | Not found |
+| Lab Test | blood test |
+
+---
+
+## 🔎 Searchable Medical Knowledge System
+
+The project creates a searchable medical concept database from the extracted entities and keywords.
+
+Users can search records by terms such as:
+
+- fever
+- diabetes
+- cancer
+- pain
+- vaccine
+- surgery
+- blood test
+
+The searchable database contains medical questions, answers, combined medical text, entity tags, and concept tags.
+
+---
+
+## 📊 Interactive Dashboard
+
+The project includes a colorful interactive dashboard built using:
+
+- HTML
+- CSS
+- JavaScript
+
+Dashboard features:
+
+- Dark mode and light mode
+- Touch-friendly buttons
+- Dataset summary cards
+- Entity category dashboard
+- Keyword frequency visualization
+- Sample medical report testing
+- Free-text medical report input
+- Structured entity output
+- Searchable concept database
+- Entity explorer table
+- CSV upload
+- CSV-based entity extraction
+- Export extracted entities as CSV
+- Export searchable concepts as CSV
+
+Open the dashboard:
+
+```text
+interface/index.html
+```
+
+---
+
+# 📊 Actual Project Outputs
+
+The project was completed using the generated dataset outputs.
 
 | Output | Count |
-| --- | ---: |
+|--------|------:|
 | Original prepared records | 16,407 |
 | Cleaned NLP-ready records | 16,359 |
 | Day 2 keyword/entity records | 16,359 |
@@ -68,20 +197,24 @@ The following counts come from the generated project outputs.
 | Training records | 13,087 |
 | Testing records | 3,272 |
 
-### Entity Category Totals
+---
 
-| Category | Frequency |
-| --- | ---: |
+# 🧾 Entity Category Summary
+
+| Entity Category | Frequency |
+|-----------------|----------:|
 | Disease | 10,824 |
 | Symptom | 6,464 |
 | Procedure | 4,599 |
 | Medication | 3,253 |
 | Lab Test | 747 |
 
-### Top Extracted Entities
+---
+
+# 🏆 Top Extracted Medical Entities
 
 | Entity | Category | Frequency |
-| --- | --- | ---: |
+|--------|----------|----------:|
 | syndrome | Disease | 4,519 |
 | surgery | Procedure | 2,430 |
 | pain | Symptom | 1,746 |
@@ -93,10 +226,12 @@ The following counts come from the generated project outputs.
 | tumor | Disease | 776 |
 | anemia | Disease | 598 |
 
-### Top Medical Keywords
+---
+
+# 🔠 Top Medical Keywords
 
 | Keyword | Frequency |
-| --- | ---: |
+|---------|----------:|
 | symptom | 33,893 |
 | may | 28,303 |
 | people | 21,293 |
@@ -110,81 +245,72 @@ The following counts come from the generated project outputs.
 
 ---
 
-## Features
+# 🛠️ Technologies Used
 
-- Medical text cleaning and preprocessing
-- Missing-value and duplicate-record inspection
-- Lowercasing and unwanted-character removal
-- Tokenization and text normalization
-- Stop-word removal with clinical-term preservation
-- Word-frequency and keyword-frequency analysis
-- TF-IDF keyword extraction
-- RAKE keyword extraction
-- KeyBERT keyword extraction on a sample due to high processing time
-- Rule-based clinical entity extraction
-- Medical concept tagging
-- Healthcare category mapping
-- Structured entity dataset generation
-- Searchable medical knowledge base
-- Train-test dataset preparation
-- Interactive dashboard
-- CSV upload and entity extraction
-- CSV export of extracted entities and concepts
-- Dark mode and light mode dashboard interface
+| Technology | Purpose |
+|------------|---------|
+| Python | Main programming language |
+| Pandas | Data loading, cleaning, and analysis |
+| NumPy | Numerical processing |
+| NLTK | Tokenization, stop words, normalization |
+| Scikit-learn | TF-IDF and train-test split |
+| RAKE | Keyword phrase extraction |
+| KeyBERT | Context-aware keyword extraction |
+| Matplotlib | Data visualization |
+| WordCloud | Word cloud generation |
+| HTML | Dashboard structure |
+| CSS | Dashboard styling and dark mode |
+| JavaScript | Dashboard interactivity and CSV extraction |
+| Streamlit | Optional Python dashboard |
+| unittest | Testing |
 
 ---
 
-## Technology Stack
-
-| Area | Tools Used |
-| --- | --- |
-| Programming | Python, JavaScript |
-| Data Processing | Pandas, NumPy |
-| NLP | NLTK, Scikit-learn, RAKE, KeyBERT |
-| Visualization | Matplotlib, WordCloud, HTML Canvas |
-| Dashboard | HTML, CSS, JavaScript, Streamlit |
-| Testing | Python unittest |
-
----
-
-## Project Structure
+# 📂 Project Structure
 
 ```text
-.
-|-- data/
-|   |-- raw/
-|   |   `-- medical_reports.jsonl
-|   `-- processed/
-|-- docs/
-|   `-- project_documentation.md
-|-- interface/
-|   |-- data/
-|   |   `-- dashboard-data.js
-|   |-- index.html
-|   |-- styles.css
-|   |-- app.js
-|   `-- README.md
-|-- src/
-|   `-- medical_keyword_extractor/
-|       |-- __init__.py
-|       |-- extractor.py
-|       |-- lexicon.py
-|       |-- pipeline.py
-|       |-- preprocessing.py
-|       `-- search.py
-|-- tests/
-|   `-- test_extractor.py
-|-- tools/
-|   `-- build_dashboard_data.py
-|-- dashboard.py
-|-- run_pipeline.py
-|-- requirements.txt
-`-- README.md
+Medical Report Keyword Extractor/
+│
+├── data/
+│   ├── raw/
+│   │   └── medical_reports.jsonl
+│   └── processed/
+│
+├── docs/
+│   └── project_documentation.md
+│
+├── interface/
+│   ├── data/
+│   │   └── dashboard-data.js
+│   ├── index.html
+│   ├── styles.css
+│   ├── app.js
+│   └── README.md
+│
+├── src/
+│   └── medical_keyword_extractor/
+│       ├── __init__.py
+│       ├── extractor.py
+│       ├── lexicon.py
+│       ├── pipeline.py
+│       ├── preprocessing.py
+│       └── search.py
+│
+├── tests/
+│   └── test_extractor.py
+│
+├── tools/
+│   └── build_dashboard_data.py
+│
+├── dashboard.py
+├── run_pipeline.py
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## Dataset and Generated Files
+# 📁 Dataset
 
 The original dataset was provided as:
 
@@ -198,29 +324,20 @@ It contained:
 train.csv
 ```
 
-The original dataset columns were:
+Original columns:
 
-```text
-qtype
-Question
-Answer
-```
+- `qtype`
+- `Question`
+- `Answer`
 
-During preprocessing, additional columns were created:
+The dataset contains medical question-answer pairs covering symptoms, conditions, treatments, susceptibility, prevention, and other healthcare-related topics.
 
-```text
-medical_text
-clean_text
-tokens
-tokens_no_stopwords
-normalized_tokens
-preprocessed_text
-```
+---
 
-### Main Output Files
+# 📦 Generated Output Files
 
 | File | Description |
-| --- | --- |
+|------|-------------|
 | `prepared_medical_text_dataset (1).csv` | Dataset after initial preparation |
 | `cleaned_medical_text_dataset (1).csv` | Final cleaned NLP-ready dataset |
 | `medical_train_dataset (1).csv` | Training dataset |
@@ -228,81 +345,133 @@ preprocessed_text
 | `word_freq_df.csv` | Word-frequency results |
 | `keyword_frequency.csv` | Keyword-frequency results |
 | `entity_frequency.csv` | Entity-frequency results |
-| `structured_clinical_entities.csv` | Structured extracted entities |
+| `structured_clinical_entities.csv` | Structured extracted medical entities |
 | `day2_medical_entity_keyword_dataset.csv` | Day 2 keyword and entity dataset |
 | `searchable_medical_knowledge_dataset.csv` | Searchable keyword and knowledge dataset |
 | `searchable_medical_concept_database.csv` | Searchable concept database |
-| `sample_medical_reports.csv` | Sample reports for dashboard testing |
+| `sample_medical_reports.csv` | Sample medical reports for testing |
 
 ---
 
-## NLP Workflow
+# 🔄 Project Workflow
 
-### 1. Data Import
+```text
+Medical Dataset
+        │
+        ▼
+Data Import Using Pandas
+        │
+        ▼
+Initial Data Inspection
+        │
+        ▼
+Missing Value and Duplicate Checking
+        │
+        ▼
+Medical Text Cleaning
+        │
+        ▼
+Tokenization and Text Normalization
+        │
+        ▼
+Stop Word Removal
+        │
+        ▼
+Medical Vocabulary Analysis
+        │
+        ▼
+Word Frequency and Word Cloud Generation
+        │
+        ▼
+TF-IDF, RAKE, and KeyBERT Keyword Extraction
+        │
+        ▼
+Clinical Entity Extraction
+        │
+        ▼
+Medical Concept Tagging
+        │
+        ▼
+Structured Entity Dataset
+        │
+        ▼
+Searchable Medical Concept Database
+        │
+        ▼
+Interactive HTML Dashboard
+        │
+        ▼
+CSV Upload, Extraction, Search, and Export
+```
 
-The dataset was imported using Pandas. The CSV file was loaded and inspected for shape, column names, missing values, and duplicate records.
+---
 
-### 2. Initial Data Inspection
+# 🧪 NLP Pipeline
 
-The following checks were performed:
+## Step 1: Data Inspection
 
-- Dataset shape
-- Column names
-- Data types
+The dataset was inspected for:
+
+- Shape
+- Columns
 - Missing values
 - Duplicate records
 - Empty questions
 - Empty answers
-- Question-type distribution
+- Question type distribution
 
-### 3. Text Cleaning
+---
 
-The medical text was cleaned by:
+## Step 2: Text Cleaning
+
+Text cleaning included:
 
 - Combining `Question` and `Answer`
 - Converting text to lowercase
-- Removing unwanted symbols
+- Removing unwanted characters
 - Removing extra spaces
 - Removing newline characters
-- Preserving useful medical patterns such as `type-2`, `covid-19`, and `x-ray`
+- Preserving medical terms such as `x-ray`, `type-2`, and `covid-19`
 
-### 4. Tokenization and Normalization
+---
 
-The cleaned text was tokenized into individual words. Stop words were removed while preserving important clinical terms such as:
+## Step 3: Text Preprocessing
 
-```text
-pain
-fever
-cancer
-diabetes
-infection
-treatment
-surgery
-drug
-vaccine
-diagnosis
-test
-```
+Text preprocessing included:
 
-Text normalization was performed using lemmatization.
+- Tokenization
+- Stop-word removal
+- Clinical term preservation
+- Lemmatization
+- Final preprocessed text generation
 
-### 5. Vocabulary Analysis
+---
 
-Word-frequency and keyword-frequency analysis were performed to identify common medical language patterns. Word-frequency charts and word-cloud visualizations were generated during the notebook workflow.
+## Step 4: Vocabulary Analysis
 
-### 6. Keyword Extraction
+Vocabulary analysis generated:
 
-Three keyword extraction methods were implemented:
+- Word-frequency tables
+- Keyword-frequency tables
+- Bar charts
+- Word cloud visualizations
+- Common healthcare entity summaries
 
-- TF-IDF
-- RAKE
-- KeyBERT
+---
 
-TF-IDF and RAKE were applied to the full dataset. KeyBERT was applied to a sample of records because transformer-based extraction is computationally expensive for large datasets.
+## Step 5: Keyword Extraction
 
-### 7. Clinical Entity Extraction
+Keyword extraction was performed using:
 
-A rule-based entity extraction approach was used to identify clinically relevant entities. Extracted entities were mapped into healthcare categories:
+- TF-IDF for statistically important terms
+- RAKE for phrase-level keyword extraction
+- KeyBERT for semantic keyword extraction on sample records
+
+---
+
+## Step 6: Entity Extraction
+
+Entity extraction mapped medical terms into:
 
 - Disease
 - Symptom
@@ -310,212 +479,179 @@ A rule-based entity extraction approach was used to identify clinically relevant
 - Procedure
 - Lab Test
 
-### 8. Medical Concept Database
-
-Extracted entities and keywords were used to create a searchable medical concept database. The database allows searching records by healthcare concepts such as:
-
-```text
-fever
-diabetes
-cancer
-pain
-surgery
-vaccine
-blood test
-```
+The output was saved as a structured clinical entity dataset.
 
 ---
 
-## Interactive Dashboard
+# 💻 Dashboard
 
-The project includes a standalone interactive dashboard built with HTML, CSS, and JavaScript.
+The project includes two dashboard options.
 
-Open:
+## 🌐 HTML Dashboard
+
+The main dashboard is available at:
 
 ```text
 interface/index.html
 ```
 
-### Dashboard Highlights
+HTML dashboard modules:
 
-- Colorful modern interface
-- Dark mode and light mode toggle
-- Touch-friendly buttons
-- Dataset summary cards
+- Home overview
+- Dataset snapshot
 - Entity category summary
-- Keyword-frequency visualization
-- Sample report testing
-- Free-text medical report input
-- Clinical entity extraction from pasted reports
-- Structured entity output
-- Searchable medical concept database
-- Entity explorer table
-- CSV upload and extraction
-- CSV export functionality
+- Keyword frequency section
+- Sample report tester
+- Structured output viewer
+- CSV extraction tool
+- Entity explorer
+- Searchable concept database
+- Export buttons
+- Dark mode and light mode
 
-### Dashboard Data Source
+---
 
-The dashboard uses:
+## 📂 CSV Extraction Interface
 
-```text
-interface/data/dashboard-data.js
-```
+The dashboard allows users to upload a CSV file and extract medical entities directly in the browser.
 
-This file was generated from the project output CSV files using:
+Supported CSV columns:
 
-```text
-tools/build_dashboard_data.py
-```
+- `medical_report`
+- `medical_text`
+- `text`
+- `report`
+- `Question`
+- `Answer`
 
-### CSV Extraction Feature
-
-The dashboard supports uploading CSV files and extracting entities directly in the browser.
-
-Supported CSV text columns:
-
-```text
-medical_report
-medical_text
-text
-report
-Question
-Answer
-```
-
-After uploading a CSV, click:
+After uploading the CSV, click:
 
 ```text
 Extract From CSV
 ```
 
-The extracted results can be exported as:
+The dashboard extracts:
+
+- Diseases
+- Symptoms
+- Medications
+- Procedures
+- Lab tests
+
+Exported output:
 
 ```text
 uploaded_csv_extracted_entities.csv
 ```
 
-### Dashboard Export Options
-
-| Dashboard Button | Exported Output |
-| --- | --- |
-| Export Entities CSV | Structured entity dataset |
-| Export Concepts CSV | Searchable concept database |
-| Download Report CSV | Entities from one tested report |
-| Export CSV Extraction | Entities extracted from uploaded CSV |
-
 ---
 
-## Python Pipeline
-
-The repository also includes a Python pipeline for processing local sample reports.
-
-Run:
-
-```powershell
-python run_pipeline.py
-```
-
-The pipeline generates files in:
-
-```text
-data/processed/
-```
-
-Generated artifacts include:
-
-```text
-cleaned_reports.csv
-structured_entities.json
-structured_entities.csv
-medical_knowledge_base.json
-search_index.json
-pipeline_summary.json
-```
-
----
-
-## Streamlit Dashboard
+## 📊 Streamlit Dashboard
 
 The project also includes a Streamlit dashboard.
 
 Run:
 
-```powershell
+```bash
 streamlit run dashboard.py
 ```
 
-The Streamlit dashboard reads generated files from:
+The Streamlit dashboard reads processed outputs from:
 
 ```text
 data/processed/
 ```
 
-Use this option if you want a Python-based dashboard. Use `interface/index.html` if you want the standalone HTML dashboard.
-
 ---
 
-## Installation
+# 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/medical-report-keyword-extractor.git
+```
+
+Move into the project folder:
+
+```bash
+cd medical-report-keyword-extractor
+```
 
 Create a virtual environment:
 
-```powershell
+```bash
 python -m venv .venv
 ```
 
-Activate it:
+Activate the virtual environment on Windows:
 
-```powershell
-.\.venv\Scripts\Activate.ps1
+```bash
+.\.venv\Scripts\activate
 ```
 
 Install dependencies:
 
-```powershell
+```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## Usage
+# ▶️ How to Run
 
-### Run Python Extraction Pipeline
+## Run the Python Pipeline
 
-```powershell
+```bash
 python run_pipeline.py
 ```
 
-### Run Tests
-
-```powershell
-python -m unittest discover tests
-```
-
-### Open HTML Dashboard
-
-Open this file in a browser:
+Generated files are saved in:
 
 ```text
-interface/index.html
+data/processed/
 ```
 
-### Run Streamlit Dashboard
+---
 
-```powershell
+## Run the Streamlit Dashboard
+
+```bash
 streamlit run dashboard.py
 ```
 
 ---
 
-## Example Input and Output
+## Open the HTML Dashboard
 
-### Input
+Open this file in any browser:
+
+```text
+interface/index.html
+```
+
+No server is required for the standalone HTML dashboard.
+
+---
+
+## Run Tests
+
+```bash
+python -m unittest discover tests
+```
+
+---
+
+# 🧾 Example Input and Output
+
+## Input Medical Report
 
 ```text
 Patient reports chest pain and shortness of breath. Troponin is elevated.
 Started aspirin 81 mg daily and scheduled coronary angiography.
 ```
 
-### Extracted Output
+## Extracted Structured Output
 
 ```json
 {
@@ -546,35 +682,105 @@ Started aspirin 81 mg daily and scheduled coronary angiography.
 
 ---
 
-## Key Observations
+# 📷 Dashboard Screenshots
 
-- The dataset contains a large amount of medical question-answer text.
-- Disease entities appeared most frequently, followed by symptoms and procedures.
-- Common medical keywords included symptom, treatment, disease, syndrome, cancer, and blood.
-- The extracted entity dataset contained 25,887 structured entity rows.
-- The searchable concept database contained 16,359 records.
-- The HTML dashboard allows users to explore, search, test, and export medical concept data.
-- CSV upload support makes the dashboard useful for testing new medical reports.
+Add your GitHub-uploaded dashboard screenshots here.
+
+## Dashboard Home
+
+```text
+Add screenshot link here
+```
+
+## CSV Extraction Page
+
+```text
+Add screenshot link here
+```
+
+## Entity Explorer
+
+```text
+Add screenshot link here
+```
+
+## Searchable Concept Database
+
+```text
+Add screenshot link here
+```
 
 ---
 
-## Limitations
+# 🎯 Learning Outcomes
 
-- The entity extraction system is rule-based and depends on predefined medical terms.
-- It may miss complex medical terms that are not included in the lexicon.
-- KeyBERT was applied to a sample instead of the complete dataset due to processing time.
-- The project is intended for learning, research, and demonstration, not clinical use.
+Through this project, the following concepts were implemented:
+
+- Medical text preprocessing
+- NLP pipeline development
+- Tokenization and normalization
+- Stop-word removal
+- Keyword extraction
+- TF-IDF implementation
+- RAKE keyword extraction
+- KeyBERT keyword extraction
+- Clinical entity extraction
+- Medical concept tagging
+- Searchable knowledge-base creation
+- Train-test dataset preparation
+- Dashboard development using HTML, CSS, and JavaScript
+- CSV upload and export functionality
+- Healthcare data visualization
 
 ---
 
-## Future Improvements
+# ⚠️ Limitations
 
-- Add advanced medical NER models.
-- Add support for PDF medical report upload.
-- Map extracted entities to ICD, SNOMED CT, RxNorm, or LOINC codes.
-- Add spelling correction for medical terminology.
-- Add confidence scoring for each extracted concept.
-- Improve visualization with more chart types.
-- Deploy the dashboard as a hosted web application.
-- Add user authentication for secure medical data handling.
+- The clinical entity extraction system is rule-based.
+- It depends on predefined healthcare terms.
+- It may miss complex medical terms not present in the dictionary.
+- KeyBERT was applied to sample records because full-dataset transformer processing is time-consuming.
+- The project is not suitable for real clinical decision-making without expert validation.
 
+---
+
+# 🔮 Future Enhancements
+
+- Add advanced medical NER models
+- Add PDF medical report upload
+- Add medical spelling correction
+- Map entities to ICD, SNOMED CT, RxNorm, or LOINC codes
+- Add patient-wise medical history tracking
+- Add confidence scoring for extracted concepts
+- Add more dashboard charts
+- Deploy dashboard as a web application
+- Add authentication and secure data handling
+- Integrate a medical AI chatbot
+
+---
+
+# 👩‍💻 Author
+
+**K. Kavya Sree**
+
+Internship Project
+
+Medical Report Keyword Extractor and Clinical NLP Dashboard
+
+---
+
+# 📄 License
+
+This project is developed for **educational and internship purposes**.
+
+---
+
+# ⭐ If you found this project useful
+
+Please consider giving this repository a **Star** on GitHub.
+
+---
+
+# 🩺 Medical Disclaimer
+
+This project is for educational use only. It does not provide medical advice, diagnosis, or treatment recommendations. Any healthcare-related use must be reviewed and validated by qualified medical professionals.
